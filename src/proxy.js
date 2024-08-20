@@ -82,7 +82,7 @@ function proxy(req, res) {
         if (shouldCompress(req)) {
             compress(req, res, buffer);
         } else {
-            return redirect(req, res);
+            bypass(req, res, buffer);
         }
     });
 }
