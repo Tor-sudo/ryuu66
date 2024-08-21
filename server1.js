@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 'use strict';
 
-const fastify = require('fastify')();
+const fastify = require('fastify')({
+  // Enable trust proxy
+  trustProxy: true,
+});
 const express = require('@fastify/express');
 const proxy = require('./src/proxy');
 
