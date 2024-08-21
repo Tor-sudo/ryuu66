@@ -1,3 +1,10 @@
-const app = require('./index');
-const server = require('http').createServer(app);
-server.listen(process.env.PORT || 8080);
+#!/usr/bin/env node
+'use strict';
+const app = require('express')();
+const proxy = require('./src/proxy');
+
+const PORT = process.env.PORT || 8080;
+
+app.enable('trust proxy');
+app.get('/', proxy);
+module.exports = app;
